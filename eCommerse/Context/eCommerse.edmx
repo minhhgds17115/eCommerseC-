@@ -1,0 +1,448 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="eCommerseASMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="streetname" Type="varchar" MaxLength="50" />
+          <Property Name="housenumber" Type="varchar" MaxLength="50" />
+          <Property Name="wardname" Type="varbinary" MaxLength="50" />
+          <Property Name="districtname" Type="nchar" MaxLength="10" />
+          <Property Name="city" Type="nchar" MaxLength="10" />
+          <Property Name="country" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="int" Nullable="false" />
+          <Property Name="name_brand" Type="varchar" MaxLength="50" />
+          <Property Name="desc_brand" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="productid" Type="int" />
+          <Property Name="quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="int" Nullable="false" />
+          <Property Name="name_category" Type="varchar" MaxLength="50" />
+          <Property Name="desc_category" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="int" />
+          <Property Name="total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="paymentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" />
+          <Property Name="provider" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="productName" Type="varchar" MaxLength="150" />
+          <Property Name="descProduct" Type="varchar" MaxLength="150" />
+          <Property Name="idBrand" Type="int" Nullable="false" />
+          <Property Name="idCategory" Type="int" Nullable="false" />
+          <Property Name="priceProduct" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="quantityProduct" Type="int" />
+          <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="idRating" Type="int" />
+          <Property Name="idImage" Type="int" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="productID" Type="int" Nullable="false" />
+          <Property Name="rating" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nameUser" Type="varchar" MaxLength="150" />
+          <Property Name="phoneUser" Type="int" />
+          <Property Name="address_user" Type="varchar" MaxLength="150" />
+          <Property Name="username" Type="varchar" MaxLength="150" />
+          <Property Name="phonenumber" Type="int" />
+          <Property Name="addressID" Type="int" />
+          <Property Name="emaild" Type="nchar" MaxLength="10" />
+          <Property Name="createDate" Type="datetime" />
+          <Property Name="updateDate" Type="datetime" />
+          <Property Name="gender" Type="nchar" MaxLength="10" />
+          <Property Name="role" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="eCommerseASMModelStoreContainer">
+          <EntitySet Name="address" EntityType="Self.address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="brand" EntityType="Self.brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order" EntityType="Self.order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rating" EntityType="Self.rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="eCommerseASMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="address">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="streetname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="housenumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wardname" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="districtname" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="country" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="brand">
+          <Key>
+            <PropertyRef Name="id_brand" />
+          </Key>
+          <Property Name="id_brand" Type="Int32" Nullable="false" />
+          <Property Name="name_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desc_brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cart">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="productid" Type="Int32" />
+          <Property Name="quantity" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="id_category" />
+          </Key>
+          <Property Name="id_category" Type="Int32" Nullable="false" />
+          <Property Name="name_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desc_category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" />
+          <Property Name="total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="paymentID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="provider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="productName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="descProduct" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="idBrand" Type="Int32" Nullable="false" />
+          <Property Name="idCategory" Type="Int32" Nullable="false" />
+          <Property Name="priceProduct" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="quantityProduct" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="idRating" Type="Int32" />
+          <Property Name="idImage" Type="Int32" />
+        </EntityType>
+        <EntityType Name="rating">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="productID" Type="Int32" Nullable="false" />
+          <Property Name="rating1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="role1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameUser" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phoneUser" Type="Int32" />
+          <Property Name="address_user" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phonenumber" Type="Int32" />
+          <Property Name="addressID" Type="Int32" />
+          <Property Name="emaild" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="eCommerseASMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="addresses" EntityType="Self.address" />
+          <EntitySet Name="brands" EntityType="Self.brand" />
+          <EntitySet Name="carts" EntityType="Self.cart" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ratings" EntityType="Self.rating" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="eCommerseASMModelStoreContainer" CdmEntityContainer="eCommerseASMEntities">
+          <EntitySetMapping Name="addresses">
+            <EntityTypeMapping TypeName="eCommerseASMModel.address">
+              <MappingFragment StoreEntitySet="address">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="streetname" ColumnName="streetname" />
+                <ScalarProperty Name="housenumber" ColumnName="housenumber" />
+                <ScalarProperty Name="wardname" ColumnName="wardname" />
+                <ScalarProperty Name="districtname" ColumnName="districtname" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="country" ColumnName="country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="brands">
+            <EntityTypeMapping TypeName="eCommerseASMModel.brand">
+              <MappingFragment StoreEntitySet="brand">
+                <ScalarProperty Name="id_brand" ColumnName="id_brand" />
+                <ScalarProperty Name="name_brand" ColumnName="name_brand" />
+                <ScalarProperty Name="desc_brand" ColumnName="desc_brand" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="carts">
+            <EntityTypeMapping TypeName="eCommerseASMModel.cart">
+              <MappingFragment StoreEntitySet="cart">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="eCommerseASMModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="id_category" ColumnName="id_category" />
+                <ScalarProperty Name="name_category" ColumnName="name_category" />
+                <ScalarProperty Name="desc_category" ColumnName="desc_category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="eCommerseASMModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="eCommerseASMModel.order">
+              <MappingFragment StoreEntitySet="order">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="eCommerseASMModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="provider" ColumnName="provider" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="eCommerseASMModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="descProduct" ColumnName="descProduct" />
+                <ScalarProperty Name="idBrand" ColumnName="idBrand" />
+                <ScalarProperty Name="idCategory" ColumnName="idCategory" />
+                <ScalarProperty Name="priceProduct" ColumnName="priceProduct" />
+                <ScalarProperty Name="quantityProduct" ColumnName="quantityProduct" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="idRating" ColumnName="idRating" />
+                <ScalarProperty Name="idImage" ColumnName="idImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ratings">
+            <EntityTypeMapping TypeName="eCommerseASMModel.rating">
+              <MappingFragment StoreEntitySet="rating">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="rating1" ColumnName="rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="eCommerseASMModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="role1" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="eCommerseASMModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="eCommerseASMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
+                <ScalarProperty Name="phoneUser" ColumnName="phoneUser" />
+                <ScalarProperty Name="address_user" ColumnName="address_user" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="addressID" ColumnName="addressID" />
+                <ScalarProperty Name="emaild" ColumnName="emaild" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="role" ColumnName="role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

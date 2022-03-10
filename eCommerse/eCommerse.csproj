@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -122,11 +130,63 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
+    <Compile Include="Context\address.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\brand.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\cart.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Category.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\eCommerse.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eCommerse.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\eCommerse.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\eCommerse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eCommerse.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Image.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\order.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Payment.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Product.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\rating.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Role.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\sysdiagram.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\User.cs">
+      <DependentUpon>eCommerse.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2017,6 +2077,16 @@
     <Content Include="Content\plugins\uplot\uPlot.iife.js" />
     <Content Include="Content\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\plugins\uplot\uPlot.min.css" />
+    <Content Include="Context\eCommerse.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>eCommerse.Context.cs</LastGenOutput>
+      <DependentUpon>eCommerse.edmx</DependentUpon>
+    </Content>
+    <Content Include="Context\eCommerse.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>eCommerse.edmx</DependentUpon>
+      <LastGenOutput>eCommerse.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\css\bootstrap.css" />
     <Content Include="fonts\css\responsive.css" />
@@ -2191,6 +2261,13 @@
     <Content Include="Content\plugins\summernote\summernote.js.map" />
     <Content Include="Content\plugins\summernote\summernote.min.js.map" />
     <Content Include="Content\plugins\toastr\toastr.js.map" />
+    <EntityDeploy Include="Context\eCommerse.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>eCommerse.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\eCommerse.edmx.diagram">
+      <DependentUpon>eCommerse.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2221,7 +2298,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\admin\Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\admin\" />
   </ItemGroup>
   <ItemGroup>
@@ -2236,6 +2312,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
