@@ -181,8 +181,10 @@
     <Compile Include="Context\User.cs">
       <DependentUpon>eCommerse.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,6 +247,17 @@
     <Content Include="Content\dist\js\pages\dashboard.js" />
     <Content Include="Content\dist\js\pages\dashboard2.js" />
     <Content Include="Content\dist\js\pages\dashboard3.js" />
+    <Content Include="Content\images\Category\display.jpg" />
+    <Content Include="Content\images\Category\HardDrive.jpg" />
+    <Content Include="Content\images\Category\HeatSink.jpg" />
+    <Content Include="Content\images\Category\keyboard.jpg" />
+    <Content Include="Content\images\Category\motherBoard.jpg" />
+    <Content Include="Content\images\Category\Mouse.jpg" />
+    <Content Include="Content\images\Category\PCcase.jpg" />
+    <Content Include="Content\images\Category\powersrouce.jpg" />
+    <Content Include="Content\images\Category\RamStick.jpg" />
+    <Content Include="Content\images\Category\Speaker.jpg" />
+    <Content Include="Content\images\Category\VGA.jpg" />
     <Content Include="Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="Content\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="Content\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2294,6 +2307,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\ProductDetail\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
