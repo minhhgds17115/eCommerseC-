@@ -17,5 +17,10 @@ namespace eCommerse.Controllers
             var lstCategory = objeCommerseASMEntities.Categories.ToList();
             return View(lstCategory);
         }
+        public ActionResult ProductCategory (int id )
+        {
+            var lstProduct = objeCommerseASMEntities.Products.Where(n => n.idCategory == id).ToList();
+            return View(lstProduct);
+        }
     }
 }

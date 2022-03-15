@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eCommerse.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,13 @@ namespace eCommerse.Controllers
 {
     public class ProductController : Controller
     {
+        eCommerseASMEntities objeCommerseEntities = new eCommerseASMEntities();
+
         // GET: Product
-        public ActionResult Detail()
+        public ActionResult Detail(int id)
         {
-            return View();
+            var objProduct = objeCommerseEntities.Products.Where(n => n.id == id).FirstOrDefault();
+            return View(objProduct);
         }
     }
 }
