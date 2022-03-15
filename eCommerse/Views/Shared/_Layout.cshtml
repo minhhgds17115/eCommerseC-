@@ -18,7 +18,7 @@
     <link href="~/fonts/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
     <!-- Font awesome 5 -->
-    <link href="fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
 
     <!-- custom style -->
     <link href="~/fonts/css/ui.css" rel="stylesheet" type="text/css" />
@@ -68,6 +68,21 @@
                                         <i class="fa fa-user"></i>
                                         <span class="notify">3</span>
                                     </div>
+                                    @if (Session["idUser"] != null)
+            {
+<li>
+    <a href=" ~/Admin/Product/Index"> Trang Admin</a>
+    
+</li>
+                                    <l><a href="~/Home/Logout" class="btn btn-warning"> Logout</a></l>
+            }
+            else
+            {
+<l>
+    <a href="~/Home/Register">Register</a>
+</l>
+                                    <l><a href="~/Home/Login">Login</a></l>
+            }
                                     <small class="text"> My profile </small>
                                 </a>
                             </div>

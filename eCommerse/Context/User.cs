@@ -26,5 +26,7 @@ namespace eCommerse.Context
         public Nullable<System.DateTime> updateDate { get; set; }
         public string gender { get; set; }
         public string role { get; set; }
+
+        public string password { get; set; }
     }
 }
