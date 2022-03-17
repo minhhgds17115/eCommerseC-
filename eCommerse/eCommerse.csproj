@@ -46,10 +46,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -129,7 +129,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\admin\adminAreaRegistration.cs" />
+    <Compile Include="Areas\admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\admin\Controllers\CustomerController.cs" />
     <Compile Include="Areas\admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\admin\Controllers\ProductController.cs" />
     <Compile Include="Context\address.cs">
       <DependentUpon>eCommerse.tt</DependentUpon>
     </Compile>
@@ -157,9 +160,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>eCommerse.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Context\Image.cs">
-      <DependentUpon>eCommerse.tt</DependentUpon>
-    </Compile>
     <Compile Include="Context\order.cs">
       <DependentUpon>eCommerse.tt</DependentUpon>
     </Compile>
@@ -181,9 +181,9 @@
     <Compile Include="Context\User.cs">
       <DependentUpon>eCommerse.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Context\Controllers\CategoryController.cs" />
+    <Compile Include="Context\Controllers\HomeController.cs" />
+    <Compile Include="Context\Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2280,6 +2280,16 @@
     <Content Include="Context\eCommerse.edmx.diagram">
       <DependentUpon>eCommerse.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Create.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Delete.cshtml" />
+    <Content Include="Areas\admin\Views\Category\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\admin\Views\Customer\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

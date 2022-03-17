@@ -118,7 +118,7 @@
                         <div class="col-md col-6">
                             <figure class="card-product-grid card-sm">
                                 <a href="@Url.Action("Detail", "Product", new { id = item.id})" class="img-wrap">
-                                    <img src="~/Content/images/items/@item.idImage">
+                                    <img src="~/Content/images/items/@item.Avatar">
                                 </a>
                                 <div class="text-wrap p-3">
                                     @*<a href="#" class="title">@item.productName</a>*@
@@ -161,7 +161,7 @@
                                 <a href="@Url.Action("Detail", "Product", new { id = item.id})" class="item">
                                     <div class="card-body">
                                         <h6 class="title">@item.productName  </h6>
-                                        <img class="img-sm float-right" src="~/Content/images/items/@item.idImage">
+                                        <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
                                         <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.descProduct'</p>
                                     </div>
                                 </a>
@@ -201,7 +201,7 @@
                                     <a href="@Url.Action("Detail", "Product", new { id = item.id})" class="item">
                                         <div class="card-body">
                                             <h6 class="title">@item.productName  </h6>
-                                            <img class="img-sm float-right" src="~/Content/images/items/@item.idImage">
+                                            <img class="img-sm float-right" src="~/Content/images/items/@item.Avatar">
                                             <p class="text-muted"><i class="fa fa-map-marker-alt"></i> @item.descProduct'</p>
                                         </div>
                                     </a>
@@ -290,7 +290,7 @@
                 {
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <div href="#" class="card card-sm card-product-grid">
-                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.idImage"> </a>
+                    <a href="#" class="img-wrap"> <img src="~/Content/images/items/@item.Avatar"> </a>
                     <figcaption class="info-wrap">
                         <a href="#" class="title">@item.productName</a>
                         <div class="price mt-1">@item.priceProduct$</div> 

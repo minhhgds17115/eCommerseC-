@@ -1,0 +1,82 @@
+﻿@model IEnumerable<eCommerse.Context.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priceProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantityProduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.productName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priceProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantityProduct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avatar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

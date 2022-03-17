@@ -1,0 +1,91 @@
+﻿@model eCommerse.Context.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avatar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

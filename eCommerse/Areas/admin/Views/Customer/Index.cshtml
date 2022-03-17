@@ -1,0 +1,100 @@
+﻿@model IEnumerable<eCommerse.Context.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nameUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phoneUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address_user)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phonenumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emaild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nameUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phoneUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phonenumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.addressID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emaild)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.updateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -29,13 +29,12 @@ namespace eCommerse.Context
         public virtual DbSet<brand> brands { get; set; }
         public virtual DbSet<cart> carts { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<order> orders { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<rating> ratings { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 }

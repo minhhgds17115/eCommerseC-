@@ -1,0 +1,97 @@
+﻿@model eCommerse.Context.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.priceProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.priceProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantityProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantityProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avatar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avatar)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete","Product", FormMethod.Post, new { enctype = "multipar/form-data" })) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

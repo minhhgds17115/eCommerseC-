@@ -9,14 +9,13 @@
         <EntityTypeShape EntityType="eCommerseASMModel.brand" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.cart" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.Category" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eCommerseASMModel.Image" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.order" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.Payment" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="eCommerseASMModel.Product" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.rating" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.Role" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.sysdiagram" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="eCommerseASMModel.User" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eCommerseASMModel.Product" Width="1.5" PointX="0.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

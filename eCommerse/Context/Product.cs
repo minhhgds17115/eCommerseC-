@@ -11,7 +11,8 @@ namespace eCommerse.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Product
     {
         public int id { get; set; }
@@ -23,6 +24,9 @@ namespace eCommerse.Context
         public Nullable<int> quantityProduct { get; set; }
         public string status { get; set; }
         public Nullable<int> idRating { get; set; }
-        public Nullable<int> idImage { get; set; }
+        public string Avatar { get; set; }
+
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }
