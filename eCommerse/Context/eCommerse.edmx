@@ -114,8 +114,8 @@
           <Property Name="address_user" Type="varchar" MaxLength="150" />
           <Property Name="username" Type="varchar" MaxLength="150" />
           <Property Name="phonenumber" Type="int" />
-          <Property Name="addressID" Type="int" />
-          <Property Name="emaild" Type="nchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="emaild" Type="nchar" MaxLength="100" />
           <Property Name="createDate" Type="datetime" />
           <Property Name="updateDate" Type="datetime" />
           <Property Name="gender" Type="nchar" MaxLength="10" />
@@ -222,24 +222,6 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nameUser" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="phoneUser" Type="Int32" />
-          <Property Name="address_user" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="phonenumber" Type="Int32" />
-          <Property Name="addressID" Type="Int32" />
-          <Property Name="emaild" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="createDate" Type="DateTime" Precision="3" />
-          <Property Name="updateDate" Type="DateTime" Precision="3" />
-          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
-        </EntityType>
         <EntityContainer Name="eCommerseASMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="addresses" EntityType="Self.address" />
           <EntitySet Name="brands" EntityType="Self.brand" />
@@ -250,8 +232,8 @@
           <EntitySet Name="ratings" EntityType="Self.rating" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Products" EntityType="eCommerseASMModel.Product" />
+          <EntitySet Name="Users" EntityType="eCommerseASMModel.User" />
         </EntityContainer>
         <EntityType Name="Product">
           <Key>
@@ -267,6 +249,23 @@
           <Property Name="status" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="idRating" Type="Int32" />
           <Property Name="Avatar" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nameUser" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phoneUser" Type="Int32" />
+          <Property Name="username" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="phonenumber" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emaild" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="3" />
+          <Property Name="updateDate" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -366,25 +365,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="eCommerseASMModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
-                <ScalarProperty Name="phoneUser" ColumnName="phoneUser" />
-                <ScalarProperty Name="address_user" ColumnName="address_user" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
-                <ScalarProperty Name="addressID" ColumnName="addressID" />
-                <ScalarProperty Name="emaild" ColumnName="emaild" />
-                <ScalarProperty Name="createDate" ColumnName="createDate" />
-                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="role" ColumnName="role" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="eCommerseASMModel.Product">
               <MappingFragment StoreEntitySet="Product">
@@ -397,6 +377,24 @@
                 <ScalarProperty Name="idBrand" ColumnName="idBrand" />
                 <ScalarProperty Name="descProduct" ColumnName="descProduct" />
                 <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="eCommerseASMModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="updateDate" ColumnName="updateDate" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="emaild" ColumnName="emaild" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="phoneUser" ColumnName="phoneUser" />
+                <ScalarProperty Name="nameUser" ColumnName="nameUser" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -1,43 +1,54 @@
-﻿@model IEnumerable<eCommerse.Context.Product>
+﻿
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<eCommerse.Context.Product>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Product Management</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@using (Html.BeginForm("index","Product", FormMethod.Get))
+            {
+                <p>
+                    Product searh : @Html.TextBox("SearchString", ViewBag.CurrentlyFilter as string)
+                    <input type="submit" value="Search"/>
+                </p>
+            }
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.productName)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().productName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.descProduct)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().descProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idBrand)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().idBrand)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idCategory)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().idCategory)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.priceProduct)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().priceProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.quantityProduct)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().quantityProduct)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().status)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.idRating)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().idRating)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Avatar)
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Avatar)
         </th>
         <th></th>
     </tr>
@@ -80,3 +91,8 @@
 }
 
 </table>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("index",
+    new {page, currentFilter = ViewBag.CurrentFilter}))

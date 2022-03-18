@@ -1,6 +1,7 @@
 ﻿using eCommerse.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,32 +17,32 @@ namespace eCommerse.Areas.admin.Controllers
             var lstCategory = dbObj.Categories.ToList();
             return View(lstCategory);
         }
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-            
-        //    return View();
-        //}
-        //[HttpPost]
-        //public ActionResult Create(Category objCate)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if(objCate.id_category != null)
-        //        {
-        //            int CategoryID = objCate.id_category;
-        //            string CategoryName = objCate.name_category;
-        //            string CategoryDesc = objCate.desc_category;
-        //        }
-        //        dbObj.Categories.Add(objCate);
-        //        dbObj.SaveChanges();
-        //        return RedirectToAction("index");
+        [HttpGet]
+        public ActionResult Create()
+        {
 
-        //    }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Category objCate)
+        {
+            if (ModelState.IsValid)
+            {
+                
+                {
+                    int CategoryID = objCate.id_category;
+                    string CategoryName = objCate.name_category;
+                    string CategoryDesc = objCate.desc_category;
 
-        //    return RedirectToAction("index");
+                    dbObj.Categories.Add(objCate);
+                    dbObj.SaveChanges();
+                    return RedirectToAction("index");
 
-        //}
+                }
+                }
+                return RedirectToAction("index");
+            }
+        
         [HttpGet]
         public ActionResult Details(int id)
         {
@@ -52,7 +53,7 @@ namespace eCommerse.Areas.admin.Controllers
         public ActionResult Delete(int id)
         {
             var objCategory = dbObj.Categories.Where(n => n.id_category == id).FirstOrDefault();
-            return View();
+            return View(objCategory);
         }
         [HttpPost]
         public ActionResult Delete(Category objCate)
@@ -60,15 +61,34 @@ namespace eCommerse.Areas.admin.Controllers
             var objCategory = dbObj.Categories.Where(n => n.id_category == objCate.id_category).FirstOrDefault();
             dbObj.Categories.Remove(objCategory);
             dbObj.SaveChanges();
-            return View(objCategory);
+            return RedirectToAction( "index");
         }
-       
+
         [HttpGet]
         public ActionResult Edit(int id)
         {
             var objCategory = dbObj.Categories.Where(n => n.id_category == id).FirstOrDefault();
             return View(objCategory);
         }
-       
-    }
+
+        [HttpPost]
+        public ActionResult Edit(int id, Category objCate)
+        {
+            if (objCate.name_category != null)
+            {
+                int CategoryID = objCate.id_category;
+                string CategoryName = objCate.name_category;
+                string CategoryDesc = objCate.desc_category;
+            }
+
+            dbObj.Entry(objCate).State = EntityState.Modified;
+            dbObj.SaveChanges();
+            return View(objCate);
+
+        } 
+
+         
+
 }
+
+    }

@@ -17,10 +17,9 @@ namespace eCommerse.Context
         public int id { get; set; }
         public string nameUser { get; set; }
         public Nullable<int> phoneUser { get; set; }
-        public string address_user { get; set; }
         public string username { get; set; }
         public Nullable<int> phonenumber { get; set; }
-        public Nullable<int> addressID { get; set; }
+        public string Address { get; set; }
         public string emaild { get; set; }
         public Nullable<System.DateTime> createDate { get; set; }
         public Nullable<System.DateTime> updateDate { get; set; }
