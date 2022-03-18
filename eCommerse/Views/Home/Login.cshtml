@@ -4,33 +4,43 @@
 
 @{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row justify-content-md-center">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-header">
-                Login
-            </div>
-            <div class="card-body">
-                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.emaild)
-                        @Html.TextBoxFor(m => m.emaild, "", new { @class = "form-control", @placeholder = "Email" })
 
-                    </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.password)
-                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" class="btn btn-primary" value="Login" />
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</div>
 
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height:84vh">
+
+    <!-- ============================ COMPONENT LOGIN   ================================= -->
+    <div class="card mx-auto" style="max-width: 380px; margin-top:100px;">
+        <div class="card-body">
+            <h4 class="card-title mb-4">Sign in</h4>
+            <form>
+                <a href="#" class="btn btn-facebook btn-block mb-2"> <i class="fab fa-facebook-f"></i> &nbsp  Sign in with Facebook</a>
+                <a href="#" class="btn btn-google btn-block mb-4"> <i class="fab fa-google"></i> &nbsp  Sign in with Google</a>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.emaild)
+                    @Html.TextBoxFor(m => m.emaild, "", new { @class = "form-control", @placeholder = "Email" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.password)
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })
+                </div>
+
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+                </div> <!-- form-group// -->
+            </form>
+        </div> <!-- card-body.// -->
+    </div> <!-- card .// -->
+
+    <p class="text-center mt-4">Don't have account? <a href="~/Home/Register">Sign up</a></p>
+    <br><br>
+    <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
